@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  web:
+    image: my-web-app
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD", "node", "server.js", "||", "exit 1"]
+      interval: 10s
+      retries: 3
+      timeout: 5s
